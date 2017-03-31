@@ -54,7 +54,7 @@ def journeymantest4():
 def main():
     journeymantest1()
     journeymantest2()
-    #journeymantest3()
+    journeymantest3()
     journeymantest4()
 
 main()

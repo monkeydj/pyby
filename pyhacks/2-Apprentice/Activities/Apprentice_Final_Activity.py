@@ -6,6 +6,7 @@ saved_string = ''
 def remove_letter():  # Remove a selected letter from a string
     global saved_string
     letter = str(raw_input('A letter to remove: '))
+    letter = letter[0] # always the first character
     saved_string = saved_string.replace(letter, '')
     print "String after remove: " + saved_string
     return
@@ -30,11 +31,11 @@ def print_string():  # Print the previously stored string
 
 def calculator():  # Basic Calculator (addition, subtraction, multiplication, division)
     signs = {'+': operator.add, '-': operator.sub,
-            '*': operator.mul, '/': operator.div}
+             '*': operator.mul, '/': operator.div}
     fst_num = int(raw_input('First number: '))
     opt = str(raw_input("Operation: "))
     snd_num = int(raw_input('Second number: '))
-    print "Result: %f" % signs[opt](fst_num, snd_num)
+    print "Result: %f %s %f = %f" % (fst_num, opt, snd_num, signs[opt](fst_num, snd_num))
     return
 
 

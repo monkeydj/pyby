@@ -17,7 +17,13 @@ item:
 4
 
 '''
-def journeyman1(str_list , item):
+
+
+def journeyman1(str_list, item):
+    with open(str(str_list[item]), 'w') as jnf:
+        for i in range(len(str_list)):
+            if i != item:
+                jnf.write(str_list[i])
     return
 
 
@@ -25,24 +31,53 @@ def journeyman1(str_list , item):
 returns the sum of every integer up to and including that number, use a 
 generator.'''
 
+
 def sum_generator(final_num):
-    return #(Make this a yield)
+    current = 0
+    while current <= final_num:
+        yield current
+        current += 1
+    return  # (Make this a yield)
+
 
 def journeyman2(final_num):
-    #return sum(range(final_num+1))
-    return
+    # return sum(range(final_num+1))
+    return sum(sum_generator(final_num))
 
 
 '''1.3) Write a python script which connects to the included server 
 on port 50001 and returns the message it receives.'''
+
+
 def journeyman3():
-    return
+    print 'Connecting...'
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.connect(('127.0.0.1', 50001))
+    recv_string = s.recv(1024)
+    s.close()
+    return recv_string
 
 
 '''1.4) Create a class called person, with height, weight, hair color, 
 and eye color fields, then implement it to describe yourself.'''
+
+
 def journeyman4():
+    class Person:
+
+        def __init__(self, height=0, weight=0, hair='', eye=''):
+            self.height = height
+            self.weight = weight
+            self.hair = hair
+            self.eye = eye
+
+        def describe(self):
+            print 'Height:\t\t%d' % self.height
+            print 'Weight:\t\t%d' % self.weight
+            print 'Hair color:\t%s' % self.hair
+            print 'Eye color:\t%s' % self.eye
+
+    Jio = Person(165, 80, 'black', 'dark brown')
+    Jio.describe()
+
     return
-    
-
-
