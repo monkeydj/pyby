@@ -50,12 +50,15 @@ on port 50001 and returns the message it receives.'''
 
 
 def journeyman3():
-    print 'Connecting...'
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.connect(('127.0.0.1', 50001))
-    recv_string = s.recv(1024)
-    s.close()
-    return recv_string
+    recv_string = ''
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.connect(('127.0.0.1', 50001))
+        recv_string = s.recv(1024)
+        s.close()
+    except Exception as e: pass
+    finally:
+        return recv_string
 
 
 '''1.4) Create a class called person, with height, weight, hair color, 
